@@ -1,0 +1,24 @@
+{
+  "name": "stars-and-bars-yarn",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "ccapture.js": "git+https://git@github.com/aceslowman/ccapture.js.git#npm-fix",
+    "css-loader": "^3.6.0",
+    "file-loader": "^6.0.0",
+    "style-loader": "^1.2.1",
+    "three": "^0.105.0",
+    "url-loader": "^4.1.0"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "build": "webpack",
+    "serve": "webpack-dev-server"
+  }
+}
