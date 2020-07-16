@@ -1,10 +1,11 @@
 import "./static/styles/style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import {create_diamond, create_person} from "./intialize";
+import { create_diamond, create_person } from "./intialize";
 
 import * as EXP from "./explanaria/main";
 
+// setting up three
 var three = EXP.setupThree(60, 25);
 var controls = new OrbitControls(three.camera, three.renderer.domElement);
 controls.enableRotate = false;
@@ -20,8 +21,6 @@ params.diamond_radius = 0.5;
 params.freq = 2;
 params.box_width = 1;
 params.box_height = 2;
-
-// setting up colors
 
 var diamond1 = create_diamond(params);
 var diamond2 = create_diamond(params);
@@ -50,10 +49,6 @@ diamond5.diamond
   .add(diamond5.coordinates)
   .add(diamond5.line);
 
-/* -------------------------------------------------------------------------- */
-/*                           adding boxes for people                          */
-/* -------------------------------------------------------------------------- */
-
 var person1 = create_person(params);
 var person2 = create_person(params);
 var person3 = create_person(params);
@@ -61,10 +56,6 @@ var person3 = create_person(params);
 person1.person.add(person1.coordinates).add(person1.line);
 person2.person.add(person2.coordinates).add(person2.line);
 person3.person.add(person3.coordinates).add(person3.line);
-
-/* -------------------------------------------------------------------------- */
-/*                                  animating                                 */
-/* -------------------------------------------------------------------------- */
 
 three.on("update", function (time) {
   [
@@ -91,285 +82,293 @@ async function animate() {
   await presentation.begin();
 
   /* --------------------------- first slide: label1 -------------------------- */
-  // setting initial coordinates of the diamonds
-  EXP.TransitionTo(
-    diamond1.coordinates,
-    { expr: (i, t, x, y, z) => [x, y, z] },
-    5
-  );
-  EXP.TransitionTo(
-    diamond2.coordinates,
-    { expr: (i, t, x, y, z) => [x, y, z] },
-    5
-  );
-  EXP.TransitionTo(
-    diamond3.coordinates,
-    { expr: (i, t, x, y, z) => [x, y, z] },
-    5
-  );
-  EXP.TransitionTo(
-    diamond4.coordinates,
-    { expr: (i, t, x, y, z) => [x, y, z] },
-    5
-  );
-  EXP.TransitionTo(
-    diamond5.coordinates,
-    { expr: (i, t, x, y, z) => [x, y, z] },
-    5
-  );
+  {
+    // setting initial coordinates of the diamonds
+    EXP.TransitionTo(
+      diamond1.coordinates,
+      { expr: (i, t, x, y, z) => [x, y, z] },
+      5
+    );
+    EXP.TransitionTo(
+      diamond2.coordinates,
+      { expr: (i, t, x, y, z) => [x, y, z] },
+      5
+    );
+    EXP.TransitionTo(
+      diamond3.coordinates,
+      { expr: (i, t, x, y, z) => [x, y, z] },
+      5
+    );
+    EXP.TransitionTo(
+      diamond4.coordinates,
+      { expr: (i, t, x, y, z) => [x, y, z] },
+      5
+    );
+    EXP.TransitionTo(
+      diamond5.coordinates,
+      { expr: (i, t, x, y, z) => [x, y, z] },
+      5
+    );
 
-  // moving the coordinates of the people
-  EXP.TransitionTo(
-    person_coordinates1,
-    { expr: (i, t, x, y, z) => [x, y, z] },
-    5
-  );
-  EXP.TransitionTo(
-    person_coordinates3,
-    { expr: (i, t, x, y, z) => [x, y, z] },
-    5
-  );
+    // moving the coordinates of the people
+    EXP.TransitionTo(
+      person1.coordinates,
+      { expr: (i, t, x, y, z) => [x, y, z] },
+      5
+    );
+    EXP.TransitionTo(
+      person3.coordinates,
+      { expr: (i, t, x, y, z) => [x, y, z] },
+      5
+    );
 
-  // moving the coordinates of the diamonds
-  EXP.TransitionTo(
-    diamond1.coordinates,
-    { expr: (i, t, x, y, z) => [x - 6, y + 6, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    diamond2.coordinates,
-    { expr: (i, t, x, y, z) => [x - 3, y + 6, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    diamond3.coordinates,
-    { expr: (i, t, x, y, z) => [x, y + 6, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    diamond4.coordinates,
-    { expr: (i, t, x, y, z) => [x + 3, y + 6, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    diamond5.coordinates,
-    { expr: (i, t, x, y, z) => [x + 6, y + 6, z] },
-    1000
-  );
+    // moving the coordinates of the diamonds
+    EXP.TransitionTo(
+      diamond1.coordinates,
+      { expr: (i, t, x, y, z) => [x - 6, y + 6, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      diamond2.coordinates,
+      { expr: (i, t, x, y, z) => [x - 3, y + 6, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      diamond3.coordinates,
+      { expr: (i, t, x, y, z) => [x, y + 6, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      diamond4.coordinates,
+      { expr: (i, t, x, y, z) => [x + 3, y + 6, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      diamond5.coordinates,
+      { expr: (i, t, x, y, z) => [x + 6, y + 6, z] },
+      1000
+    );
 
-  // moving the coordinates of the people
-  EXP.TransitionTo(
-    person_coordinates1,
-    { expr: (i, t, x, y, z) => [x - 6, y, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    person_coordinates3,
-    { expr: (i, t, x, y, z) => [x + 6, y, z] },
-    1000
-  );
+    // moving the coordinates of the people
+    EXP.TransitionTo(
+      person1.coordinates,
+      { expr: (i, t, x, y, z) => [x - 6, y, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      person3.coordinates,
+      { expr: (i, t, x, y, z) => [x + 6, y, z] },
+      1000
+    );
 
-  await presentation.delay(1000);
+    await presentation.delay(1000);
+  }
 
   /* -------------------------- second slide: label2 -------------------------- */
-  await presentation.nextSlide();
+  {
+    await presentation.nextSlide();
 
-  await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
-  // putting the diamonds into stacks
+    // putting the diamonds into stacks
 
-  // moving first 3 diamonds into person1
-  EXP.TransitionTo(
-    coordinates1,
-    {
-      expr: (i, t, x, y, z) => [
-        x - 6,
-        y - params.box_height + params.diamond_radius,
-        z,
-      ],
-    },
-    500
-  );
+    // moving first 3 diamonds into person1
+    EXP.TransitionTo(
+      diamond1.coordinates,
+      {
+        expr: (i, t, x, y, z) => [
+          x - 6,
+          y - params.box_height + params.diamond_radius,
+          z,
+        ],
+      },
+      500
+    );
 
-  EXP.TransitionTo(
-    coordinates2,
-    {
-      expr: (i, t, x, y, z) => [
-        x - 6,
-        y - params.box_height + 3 * params.diamond_radius,
-        z,
-      ],
-    },
-    500
-  );
+    EXP.TransitionTo(
+      diamond2.coordinates,
+      {
+        expr: (i, t, x, y, z) => [
+          x - 6,
+          y - params.box_height + 3 * params.diamond_radius,
+          z,
+        ],
+      },
+      500
+    );
 
-  EXP.TransitionTo(
-    coordinates3,
-    {
-      expr: (i, t, x, y, z) => [
-        x - 6,
-        y - params.box_height + 5 * params.diamond_radius,
-        z,
-      ],
-    },
-    500
-  );
+    EXP.TransitionTo(
+      diamond3.coordinates,
+      {
+        expr: (i, t, x, y, z) => [
+          x - 6,
+          y - params.box_height + 5 * params.diamond_radius,
+          z,
+        ],
+      },
+      500
+    );
 
-  // moving fourth diamond into person2
-  EXP.TransitionTo(
-    coordinates4,
-    {
-      expr: (i, t, x, y, z) => [
-        x,
-        y - params.box_height + params.diamond_radius,
-        z,
-      ],
-    },
-    500
-  );
+    // moving fourth diamond into person2
+    EXP.TransitionTo(
+      diamond4.coordinates,
+      {
+        expr: (i, t, x, y, z) => [
+          x,
+          y - params.box_height + params.diamond_radius,
+          z,
+        ],
+      },
+      500
+    );
 
-  // moving fifth diamond into person3
-  EXP.TransitionTo(
-    coordinates5,
-    {
-      expr: (i, t, x, y, z) => [
-        x + 6,
-        y - params.box_height + params.diamond_radius,
-        z,
-      ],
-    },
-    500
-  );
+    // moving fifth diamond into person3
+    EXP.TransitionTo(
+      diamond5.coordinates,
+      {
+        expr: (i, t, x, y, z) => [
+          x + 6,
+          y - params.box_height + params.diamond_radius,
+          z,
+        ],
+      },
+      500
+    );
 
-  await presentation.delay(reading_time);
-
+    await presentation.delay(reading_time);
+  }
   /* --------------------------- third slide: label3 -------------------------- */
+  {
+    await presentation.nextSlide();
 
-  await presentation.nextSlide();
+    // switching two diamonds out of the stack
+    EXP.TransitionTo(
+      diamond1.coordinates,
+      {
+        expr: (i, t, x, y, z) => [
+          x - 8,
+          y - params.box_height + 3 * params.diamond_radius,
+          z,
+        ],
+      },
+      500
+    );
 
-  // switching two diamonds out of the stack
-  EXP.TransitionTo(
-    coordinates1,
-    {
-      expr: (i, t, x, y, z) => [
-        x - 8,
-        y - params.box_height + 3 * params.diamond_radius,
-        z,
-      ],
-    },
-    500
-  );
+    EXP.TransitionTo(
+      diamond3.coordinates,
+      {
+        expr: (i, t, x, y, z) => [
+          x - 4,
+          y - params.box_height + 3 * params.diamond_radius,
+          z,
+        ],
+      },
+      500
+    );
 
-  EXP.TransitionTo(
-    coordinates3,
-    {
-      expr: (i, t, x, y, z) => [
-        x - 4,
-        y - params.box_height + 3 * params.diamond_radius,
-        z,
-      ],
-    },
-    500
-  );
+    await presentation.delay(reading_time);
 
-  await presentation.delay(reading_time);
+    // switching two diamonds back into stack
+    EXP.TransitionTo(
+      diamond1.coordinates,
+      {
+        expr: (i, t, x, y, z) => [
+          x - 6,
+          y - params.box_height + 5 * params.diamond_radius,
+          z,
+        ],
+      },
+      500
+    );
 
-  // switching two diamonds back into stack
-  EXP.TransitionTo(
-    coordinates1,
-    {
-      expr: (i, t, x, y, z) => [
-        x - 6,
-        y - params.box_height + 5 * params.diamond_radius,
-        z,
-      ],
-    },
-    500
-  );
+    EXP.TransitionTo(
+      diamond3.coordinates,
+      {
+        expr: (i, t, x, y, z) => [
+          x - 6,
+          y - params.box_height + params.diamond_radius,
+          z,
+        ],
+      },
+      500
+    );
 
-  EXP.TransitionTo(
-    coordinates3,
-    {
-      expr: (i, t, x, y, z) => [
-        x - 6,
-        y - params.box_height + params.diamond_radius,
-        z,
-      ],
-    },
-    500
-  );
-
-  await presentation.delay(reading_time + 300);
-
+    await presentation.delay(reading_time + 300);
+  }
   /* -------------------------- fourth slide: label4 -------------------------- */
-  await presentation.nextSlide();
-
+  {
+    await presentation.nextSlide();
+  }
   /* ------------------------------- fifth slide ------------------------------ */
-  await presentation.nextSlide();
+  {
+    await presentation.nextSlide();
 
-  // aligning the bars to fit outside
-  EXP.TransitionTo(
-    person_coordinates1,
-    { expr: (i, t, x, y, z) => [4 * x - 6, y, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    person_coordinates2,
-    { expr: (i, t, x, y, z) => [2 * x + 2, y, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    person_coordinates3,
-    { expr: (i, t, x, y, z) => [2 * x + 8, y, z] },
-    1000
-  );
-  await presentation.delay(reading_time);
+    // aligning the bars to fit outside
+    EXP.TransitionTo(
+      person1.coordinates,
+      { expr: (i, t, x, y, z) => [4 * x - 6, y, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      person2.coordinates,
+      { expr: (i, t, x, y, z) => [2 * x + 2, y, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      person3.coordinates,
+      { expr: (i, t, x, y, z) => [2 * x + 8, y, z] },
+      1000
+    );
+    await presentation.delay(reading_time);
 
-  EXP.TransitionTo(
-    person_coordinates1,
-    { expr: (i, t, x, y, z) => [4 * x - 6, 0.25 * y, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    person_coordinates2,
-    { expr: (i, t, x, y, z) => [2 * x + 2, 0.25 * y, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    person_coordinates3,
-    { expr: (i, t, x, y, z) => [2 * x + 8, 0.25 * y, z] },
-    1000
-  );
-  await presentation.delay(reading_time);
+    EXP.TransitionTo(
+      person1.coordinates,
+      { expr: (i, t, x, y, z) => [4 * x - 6, 0.25 * y, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      person2.coordinates,
+      { expr: (i, t, x, y, z) => [2 * x + 2, 0.25 * y, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      person3.coordinates,
+      { expr: (i, t, x, y, z) => [2 * x + 8, 0.25 * y, z] },
+      1000
+    );
+    await presentation.delay(reading_time);
 
-  // horizontal aligning of the diamonds
-  EXP.TransitionTo(
-    coordinates1,
-    { expr: (i, t, x, y, z) => [x - 8, y, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    coordinates2,
-    { expr: (i, t, x, y, z) => [x - 6, y, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    coordinates3,
-    { expr: (i, t, x, y, z) => [x - 4, y, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    coordinates4,
-    { expr: (i, t, x, y, z) => [x + 2, y, z] },
-    1000
-  );
-  EXP.TransitionTo(
-    coordinates5,
-    { expr: (i, t, x, y, z) => [x + 8, y, z] },
-    1000
-  );
-
+    // horizontal aligning of the diamonds
+    EXP.TransitionTo(
+      diamond1.coordinates,
+      { expr: (i, t, x, y, z) => [x - 8, y, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      diamond2.coordinates,
+      { expr: (i, t, x, y, z) => [x - 6, y, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      diamond3.coordinates,
+      { expr: (i, t, x, y, z) => [x - 4, y, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      diamond4.coordinates,
+      { expr: (i, t, x, y, z) => [x + 2, y, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      diamond5.coordinates,
+      { expr: (i, t, x, y, z) => [x + 8, y, z] },
+      1000
+    );
+  }
   /* ------------------------------- sixth slide ------------------------------ */
-  await presentation.delay(reading_time);
+  {
+    await presentation.delay(reading_time);
+    
+  }
 }
 window.onload = animate;
