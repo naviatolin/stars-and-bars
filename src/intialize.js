@@ -10,30 +10,34 @@ export class Diamond {
   }
 
   create_diamond() {
-    let diamond = new EXP.Area({
+    this.diamond = new EXP.Area({
       bounds: [
         [0, 2 * Math.PI],
         [0, this.diamond_radius],
       ],
       numItems: 30,
     });
-    let circleTransform = new EXP.Transformation({
+    this.circleTransform = new EXP.Transformation({
       expr: (i, t, theta, r) => polarToCartesian(theta, r),
     });
-    let coordinates = new EXP.Transformation({
+    coordinates = new EXP.Transformation({
       expr: (i, t, x, y, z) => [x, y, z],
     });
-    let line = new EXP.LineOutput({
+    this.line = new EXP.LineOutput({
       width: 3,
       color: this.blue,
       opacity: 1,
     });
     return {
-      diamond: diamond,
-      circleTransform: circleTransform,
-      coordinates: coordinates,
-      line: line,
+      diamond: this.diamond,
+      circleTransform: this.circleTransform,
+      coordinates: this.coordinates,
+      line: this.line,
     };
+  }
+
+  move(){
+    
   }
 }
 
