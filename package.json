@@ -9,6 +9,8 @@
     "file-loader": "^6.0.0",
     "style-loader": "^1.2.1",
     "three": "^0.105.0",
+    "typescript": "^3.9.7",
+    "typescript-cli": "^0.1.0",
     "url-loader": "^4.1.0"
   },
   "devDependencies": {

@@ -3881,6 +3881,16 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typescript-cli@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/typescript-cli/-/typescript-cli-0.1.0.tgz#af4bf326a5048db85c74781fba6699fa88cdde3d"
+  integrity sha512-BRJ2ElQ2/3J7pkRDreosdQ16EIiu2HgorsYy34PCnKRxOuHFwYFNNmwgO54ihy3AkMHBfgFQi9kjB7892SB1Ig==
+
+typescript@^3.9.7:
+  version "3.9.7"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
+  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
+
 union-value@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/union-value/-/union-value-1.0.1.tgz#0b6fe7b835aecda61c6ea4d4f02c14221e109847"

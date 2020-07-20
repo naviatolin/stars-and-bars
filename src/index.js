@@ -1,7 +1,7 @@
 import "./static/styles/style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { create_diamond, create_person } from "./intialize";
+import { Diamond, Person } from "./intialize";
 
 import * as EXP from "./explanaria/main";
 
@@ -16,17 +16,28 @@ three.camera.lookAt(new THREE.Vector3(0, 0, 0));
 console.log("Loaded.");
 
 // setting up parameters
-var params = {};
+let params = {};
 params.diamond_radius = 0.5;
-params.freq = 2;
 params.box_width = 1;
 params.box_height = 2;
+params.purple = 0x2a0a4d;
+params.green = 0x0a4d1c;
+params.red = 0x6e0404;
 
-var diamond1 = create_diamond(params);
-var diamond2 = create_diamond(params);
-var diamond3 = create_diamond(params);
-var diamond4 = create_diamond(params);
-var diamond5 = create_diamond(params);
+let diamond1Ent = new Diamond(params.diamond_radius);
+let diamond1 = diamond1Ent.create_diamond();
+
+let diamond2Ent = new Diamond(params.diamond_radius);
+let diamond2 = diamond2Ent.create_diamond();
+
+let diamond3Ent = new Diamond(params.diamond_radius);
+let diamond3 = diamond3Ent.create_diamond();
+
+let diamond4Ent = new Diamond(params.diamond_radius);
+let diamond4 = diamond4Ent.create_diamond();
+
+let diamond5Ent = new Diamond(params.diamond_radius);
+let diamond5 = diamond5Ent.create_diamond();
 
 diamond1.diamond
   .add(diamond1.circleTransform)
@@ -49,9 +60,14 @@ diamond5.diamond
   .add(diamond5.coordinates)
   .add(diamond5.line);
 
-var person1 = create_person(params);
-var person2 = create_person(params);
-var person3 = create_person(params);
+let person1Ent = new Person(params.box_width, params.box_height, params.purple);
+let person1 = person1Ent.create_person();
+
+let person2Ent = new Person(params.box_width, params.box_height, params.green);
+let person2 = person2Ent.create_person();
+
+let person3Ent = new Person(params.box_width, params.box_height, params.red);
+let person3 = person3Ent.create_person();
 
 person1.person.add(person1.coordinates).add(person1.line);
 person2.person.add(person2.coordinates).add(person2.line);
@@ -81,7 +97,7 @@ async function animate() {
 
   await presentation.begin();
 
-  /* --------------------------- first slide: label1 -------------------------- */
+  /* --------------------------- slide 1 -------------------------- */
   {
     // setting initial coordinates of the diamonds
     EXP.TransitionTo(
@@ -161,14 +177,14 @@ async function animate() {
       1000
     );
 
-    await presentation.delay(1000);
+    // await presentation.delay(1000);
   }
 
-  /* -------------------------- second slide: label2 -------------------------- */
+  /* -------------------------- slide 2 -------------------------- */
   {
     await presentation.nextSlide();
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // putting the diamonds into stacks
 
@@ -235,9 +251,9 @@ async function animate() {
       500
     );
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
   }
-  /* --------------------------- third slide: label3 -------------------------- */
+  /* --------------------------- slide 3  -------------------------- */
   {
     await presentation.nextSlide();
 
@@ -266,7 +282,7 @@ async function animate() {
       500
     );
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // switching two diamonds back into stack
     EXP.TransitionTo(
@@ -293,13 +309,13 @@ async function animate() {
       500
     );
 
-    await presentation.delay(reading_time + 300);
+    // await presentation.delay(reading_time + 300);
   }
-  /* -------------------------- fourth slide: label4 -------------------------- */
+  /* -------------------------- slide 4 -------------------------- */
   {
     await presentation.nextSlide();
   }
-  /* ------------------------------- fifth slide ------------------------------ */
+  /* ------------------------------- slide 5 ------------------------------ */
   {
     await presentation.nextSlide();
 
@@ -336,7 +352,7 @@ async function animate() {
       { expr: (i, t, x, y, z) => [2 * x + 8, 0.25 * y, z] },
       1000
     );
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // horizontal aligning of the diamonds
     EXP.TransitionTo(
@@ -364,11 +380,85 @@ async function animate() {
       { expr: (i, t, x, y, z) => [x + 8, y, z] },
       1000
     );
+
+    // await presentation.delay(reading_time);
   }
-  /* ------------------------------- sixth slide ------------------------------ */
+  /* ------------------------------- slide 6 ------------------------------ */
   {
-    await presentation.delay(reading_time);
-    
+    await presentation.nextSlide();
+
+    // moving one diamond up
+    EXP.TransitionTo(
+      diamond3.coordinates,
+      { expr: (i, t, x, y, z) => [x - 4, y + 3, z] },
+      1000
+    );
+
+    EXP.TransitionTo(
+      diamond1.coordinates,
+      { expr: (i, t, x, y, z) => [x - 8, y, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      diamond2.coordinates,
+      { expr: (i, t, x, y, z) => [x - 6, y, z] },
+      1000
+    );
+
+    // moving the rest of the units over
+    EXP.TransitionTo(
+      person1.coordinates,
+      { expr: (i, t, x, y, z) => [3 * x - 7, 0.25 * y, z] },
+      1000
+    );
+    EXP.TransitionTo(
+      person2.coordinates,
+      { expr: (i, t, x, y, z) => [3 * x + 1, 0.25 * y, z] },
+      1000
+    );
+
+    // await presentation.delay(reading_time);
+
+    // moving the diamond into person 2
+    EXP.TransitionTo(
+      diamond3.coordinates,
+      { expr: (i, t, x, y, z) => [x, y, z] },
+      1000
+    );
+
+    // await presentation.delay(reading_time);
   }
+
+  /* --------------------------------- slide 7 -------------------------------- */
+  {
+    await presentation.nextSlide();
+
+    EXP.TransitionTo(
+      diamond3.coordinates,
+      { expr: (i, t, x, y, z) => [x, y + 1, z] },
+      1000
+    );
+    await presentation.delay(1000);
+    EXP.TransitionTo(
+      diamond3.coordinates,
+      { expr: (i, t, x, y, z) => [x, y, z] },
+      1000
+    );
+    await presentation.delay(1000);
+    EXP.TransitionTo(
+      diamond3.coordinates,
+      { expr: (i, t, x, y, z) => [x, y + 1, z] },
+      1000
+    );
+    await presentation.delay(1000);
+    EXP.TransitionTo(
+      diamond3.coordinates,
+      { expr: (i, t, x, y, z) => [x, y, z] },
+      1000
+    );
+    await presentation.delay(1000);
+  }
+
+  /* --------------------------------- slide 8 -------------------------------- */
 }
 window.onload = animate;
