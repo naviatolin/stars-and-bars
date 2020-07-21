@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use strict";
 
 /*This class is supposed to turn a series of
@@ -156,7 +157,7 @@ class NonDecreasingDirector{
                   default:
                     break;
                 }
-                if(slideDelta != 0){
+                if(slideDelta == 1){
                     self._changeSlide(slideDelta, resolve);
                     self.rightArrow.hideSelf();
                     window.removeEventListener("keydown",keyListener); //this approach taken from https://stackoverflow.com/questions/35718645/resolving-a-promise-with-eventlistener
@@ -266,7 +267,7 @@ class NonDecreasingDirector{
         if(optionalArguments && Utils.isNumber(optionalArguments)){
             optionalArguments = {staggerFraction: optionalArguments};
         }
-        new Animation(target, toValues, durationMS === undefined ? undefined : durationMS/1000, staggerFraction=staggerFraction, optionalArguments);
+        new Animation(target, toValues, durationMS/1000, staggerFraction=staggerFraction, optionalArguments);
     }
 }
 
@@ -563,7 +564,7 @@ class UndoCapableDirector extends NonDecreasingDirector{
         }
     }
     TransitionTo(target, toValues, durationMS, optionalArguments){
-        let duration = durationMS === undefined ? 1 : durationMS/1000;
+        let duration = durationMS/1000
         var animation = new Animation(target, toValues, duration, optionalArguments);
         let fromValues = animation.fromValues;
         this.undoStack.push(new UndoItem(target, toValues, fromValues, duration, optionalArguments));
