@@ -206,9 +206,11 @@ async function animate() {
     await presentation.delay(reading_time);
 
     // horizontal aligning of the diamonds
-    diamond1.move({a: -6});
-    diamond2.move({a: -4});
-    diamond3.move({})
+    diamond1.move({ a: -6 });
+    diamond2.move({ a: -4 });
+    diamond3.move({ a: -2 });
+    diamond4.move({ a: 2 });
+    diamond5.move({ a: 4 });
 
     //   EXP.TransitionTo(
     //     diamond2.coordinates,
