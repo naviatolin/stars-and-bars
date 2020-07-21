@@ -29,9 +29,11 @@ export class Diamond {
   circleTransform: any;
   coordinates: any;
   line: any;
+  presentation: any;
 
-  constructor(diamond_radius: number) {
+  constructor(diamond_radius: number, presentation: any) {
     this.diamond_radius = diamond_radius;
+    this.presentation = presentation;
   }
 
   create_diamond() {
@@ -79,7 +81,7 @@ export class Diamond {
     this.y = b + this.y;
     this.z = c + this.z;
 
-    EXP.TransitionTo(
+    this.presentation.TransitionTo(
       this.coordinates,
       {
         expr: (i: any, t: any, x: number, y: number, z: number) => [

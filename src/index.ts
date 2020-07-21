@@ -15,6 +15,8 @@ three.camera.lookAt(new THREE.Vector3(0, 0, 0));
 
 console.log("Loaded.");
 
+let presentation = new EXP.UndoCapableDirector();
+
 // setting up parameters
 let params = {
   diamond_radius: 0.5,
@@ -25,19 +27,19 @@ let params = {
   red: 0x6e0404,
 };
 
-let diamond1 = new Diamond(params.diamond_radius);
+let diamond1 = new Diamond(params.diamond_radius, presentation);
 let diamond1Ent = diamond1.create_diamond();
 
-let diamond2 = new Diamond(params.diamond_radius);
+let diamond2 = new Diamond(params.diamond_radius, presentation);
 let diamond2Ent = diamond2.create_diamond();
 
-let diamond3 = new Diamond(params.diamond_radius);
+let diamond3 = new Diamond(params.diamond_radius, presentation);
 let diamond3Ent = diamond3.create_diamond();
 
-let diamond4 = new Diamond(params.diamond_radius);
+let diamond4 = new Diamond(params.diamond_radius, presentation);
 let diamond4Ent = diamond4.create_diamond();
 
-let diamond5 = new Diamond(params.diamond_radius);
+let diamond5 = new Diamond(params.diamond_radius, presentation);
 let diamond5Ent = diamond5.create_diamond();
 
 diamond1Ent.diamond
@@ -88,7 +90,6 @@ three.on("update", function (time: any) {
   controls.update();
 });
 
-let presentation = new EXP.UndoCapableDirector();
 
 async function animate() {
   controls.enablePan = false;
