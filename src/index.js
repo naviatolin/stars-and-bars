@@ -129,20 +129,13 @@ async function animate() {
   {
     await presentation.nextSlide();
 
-    diamond1.last_state();
-    diamond2.last_state();
-    diamond3.last_state();
-    diamond4.last_state();
-    diamond5.last_state();
-
-    await presentation.delay(reading_time);
-
     // putting the diamonds into stacks
     // moving first 3 diamonds into person1
     diamond1.move({
       b: -6 - params.box_height + params.diamond_radius,
       length: 500,
     });
+    
     diamond2.move({
       a: -3,
       b: -6 - params.box_height + 3 * params.diamond_radius,

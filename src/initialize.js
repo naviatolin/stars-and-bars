@@ -1,5 +1,4 @@
 import * as EXP from "./explanaria/main";
-import { textSpanIntersectsWithTextSpan } from "typescript";
 
 function polarToCartesian(theta, r) {
   return [r * Math.cos(theta), r * Math.sin(theta), 0];
@@ -53,22 +52,29 @@ export class Diamond {
     this.scaleY = scaleB || this.scaleY;
     this.scaleZ = scaleC || this.scaleZ;
 
-    this.x = a + this.x;
-    this.y = b + this.y;
-    this.z = c + this.z;
+    let x_calc = this.x + a;
+    let y_calc = this.y + b;
+    let z_calc = this.z + c;
 
     this.presentation.TransitionTo(
       this.coordinates,
       {
         'expr': (i, t, x, y, z) => [
-          this.scaleX * x + this.x,
-          this.scaleY * y + this.y,
-          this.scaleZ * z + this.z,
+          this.scaleX * x + x_calc,
+          this.scaleY * y + y_calc,
+          this.scaleZ * z + z_calc,
         ],
       },
       length
-    );
+      );
+      this.a = a;
+      this.b = b;
+      this.c = c;
+      this.x = this.x+this.a;
+      this.y = this.y+this.b;
+      this.z = this.z+this.c;
   }
+
   last_state() {
     EXP.TransitionTo(
       this.coordinates,
@@ -82,6 +88,7 @@ export class Diamond {
       500
     );
   }
+
   reset(){
     EXP.TransitionTo(this.coordinates,{'expr': (i, t, x, y, z) => [x, y, z]}, 500);
   }
