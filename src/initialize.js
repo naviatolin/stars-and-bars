@@ -7,15 +7,15 @@ function polarToCartesian(theta, r) {
 
 /* ------------------------ Diamond Class Declaration ----------------------- */
 export class Diamond {
-  blue = 0x00ffee;
-  x = 0;
-  y = 0;
-  z = 0;
-  scaleX = 1;
-  scaleY = 1;
-  scaleZ = 1;
-
+  
   constructor(diamond_radius, presentation) {
+    this.blue = 0x00ffee;
+    this.x = 0;
+    this.y = 0;
+    this.z = 0;
+    this.scaleX = 1;
+    this.scaleY = 1;
+    this.scaleZ = 1;
     this.diamond_radius = diamond_radius;
     this.presentation = presentation;
   }
@@ -29,10 +29,10 @@ export class Diamond {
       numItems: 30,
     });
     this.circleTransform = new EXP.Transformation({
-      expr: (i, t, theta, r) => polarToCartesian(theta, r),
+      'expr': (i, t, theta, r) => polarToCartesian(theta, r),
     });
     this.coordinates = new EXP.Transformation({
-      expr: (i, t, x, y, z) => [x, y, z],
+      'expr': (i, t, x, y, z) => [x, y, z],
     });
     this.line = new EXP.LineOutput({
       width: 3,
@@ -49,9 +49,9 @@ export class Diamond {
   }
 
   move({ a = 0, b = 0, c = 0, scaleA, scaleB, scaleC, length = 1000 }) {
-    this.scaleX = scaleA ?? this.scaleX;
-    this.scaleY = scaleB ?? this.scaleY;
-    this.scaleZ = scaleC ?? this.scaleZ;
+    this.scaleX = scaleA || this.scaleX;
+    this.scaleY = scaleB || this.scaleY;
+    this.scaleZ = scaleC || this.scaleZ;
 
     this.x = a + this.x;
     this.y = b + this.y;
@@ -60,7 +60,7 @@ export class Diamond {
     this.presentation.TransitionTo(
       this.coordinates,
       {
-        expr: (i, y, z) => [
+        'expr': (i, x, y, z) => [
           this.scaleX * x + this.x,
           this.scaleY * y + this.y,
           this.scaleZ * z + this.z,
@@ -73,7 +73,7 @@ export class Diamond {
     EXP.TransitionTo(
       this.coordinates,
       {
-        expr: (i, y, z) => [
+        'expr': (i, y, z) => [
           this.scaleX * x + this.x,
           this.scaleY * y + this.y,
           this.scaleZ * z + this.z,
@@ -85,14 +85,14 @@ export class Diamond {
 }
 /* ------------------------ Person Class Declaration ------------------------ */
 export class Person {
-  x = 0;
-  y = 0;
-  z = 0;
-  scaleX = 1;
-  scaleY = 1;
-  scaleZ = 1;
-
+  
   constructor(box_width, box_height, color) {
+    this.x = 0;
+    this.y = 0;
+    this.z = 0;
+    this.scaleX = 1;
+    this.scaleY = 1;
+    this.scaleZ = 1;
     this.box_height = box_height;
     this.box_width = box_width;
     this.color = color;
@@ -108,7 +108,7 @@ export class Person {
     });
 
     this.coordinates = new EXP.Transformation({
-      expr: (i, y, z) => [x, y, z],
+      'expr': (i, x, y, z) => [x, y, z],
     });
 
     this.line = new EXP.LineOutput({
@@ -124,9 +124,9 @@ export class Person {
     };
   }
   move({ a = 0, b = 0, c = 0, scaleA, scaleB, scaleC, length = 1000 }) {
-    this.scaleX = scaleA ?? this.scaleX;
-    this.scaleY = scaleB ?? this.scaleY;
-    this.scaleZ = scaleC ?? this.scaleZ;
+    this.scaleX = scaleA || this.scaleX;
+    this.scaleY = scaleB || this.scaleY;
+    this.scaleZ = scaleC || this.scaleZ;
 
     this.x = a + this.x;
     this.y = b + this.y;
@@ -135,7 +135,7 @@ export class Person {
     EXP.TransitionTo(
       this.coordinates,
       {
-        expr: (i, y, z) => [
+        'expr': (i, x, y, z) => [
           this.scaleX * x + this.x,
           this.scaleY * y + this.y,
           this.scaleZ * z + this.z,

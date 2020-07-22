@@ -1,7 +1,7 @@
 import "./static/styles/style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { Diamond, Person } from "initialize"
+import { Diamond, Person } from "./initialize"
 
 import * as EXP from "./explanaria/main";
 
