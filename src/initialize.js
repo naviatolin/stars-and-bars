@@ -1,37 +1,21 @@
 import * as EXP from "./explanaria/main";
 import { textSpanIntersectsWithTextSpan } from "typescript";
 
-type Transformation = {
-  a?: number;
-  b?: number;
-  c?: number;
-  scaleA?: number;
-  scaleB?: number;
-  scaleC?: number;
-  length?: number;
-};
-
-function polarToCartesian(theta: number, r: number) {
+function polarToCartesian(theta, r) {
   return [r * Math.cos(theta), r * Math.sin(theta), 0];
 }
 
 /* ------------------------ Diamond Class Declaration ----------------------- */
 export class Diamond {
   blue = 0x00ffee;
-  x: number = 0;
-  y: number = 0;
-  z: number = 0;
-  scaleX: number = 1;
-  scaleY: number = 1;
-  scaleZ: number = 1;
-  diamond_radius: number;
-  diamond: any;
-  circleTransform: any;
-  coordinates: any;
-  line: any;
-  presentation: any;
+  x = 0;
+  y = 0;
+  z = 0;
+  scaleX = 1;
+  scaleY = 1;
+  scaleZ = 1;
 
-  constructor(diamond_radius: number, presentation: any) {
+  constructor(diamond_radius, presentation) {
     this.diamond_radius = diamond_radius;
     this.presentation = presentation;
   }
@@ -45,10 +29,10 @@ export class Diamond {
       numItems: 30,
     });
     this.circleTransform = new EXP.Transformation({
-      expr: (i: any, t: any, theta: any, r: any) => polarToCartesian(theta, r),
+      expr: (i, t, theta, r) => polarToCartesian(theta, r),
     });
     this.coordinates = new EXP.Transformation({
-      expr: (i: any, t: any, x: any, y: any, z: any) => [x, y, z],
+      expr: (i, t, x, y, z) => [x, y, z],
     });
     this.line = new EXP.LineOutput({
       width: 3,
@@ -64,15 +48,7 @@ export class Diamond {
     };
   }
 
-  move({
-    a = 0,
-    b = 0,
-    c = 0,
-    scaleA,
-    scaleB,
-    scaleC,
-    length = 1000,
-  }: Transformation) {
+  move({ a = 0, b = 0, c = 0, scaleA, scaleB, scaleC, length = 1000 }) {
     this.scaleX = scaleA ?? this.scaleX;
     this.scaleY = scaleB ?? this.scaleY;
     this.scaleZ = scaleC ?? this.scaleZ;
@@ -84,7 +60,7 @@ export class Diamond {
     this.presentation.TransitionTo(
       this.coordinates,
       {
-        expr: (i: any, t: any, x: number, y: number, z: number) => [
+        expr: (i, y, z) => [
           this.scaleX * x + this.x,
           this.scaleY * y + this.y,
           this.scaleZ * z + this.z,
@@ -97,7 +73,7 @@ export class Diamond {
     EXP.TransitionTo(
       this.coordinates,
       {
-        expr: (i: any, t: any, x: number, y: number, z: number) => [
+        expr: (i, y, z) => [
           this.scaleX * x + this.x,
           this.scaleY * y + this.y,
           this.scaleZ * z + this.z,
@@ -109,20 +85,14 @@ export class Diamond {
 }
 /* ------------------------ Person Class Declaration ------------------------ */
 export class Person {
-  box_height: number;
-  box_width: number;
-  color: number;
-  x: number = 0;
-  y: number = 0;
-  z: number = 0;
-  scaleX: number = 1;
-  scaleY: number = 1;
-  scaleZ: number = 1;
-  person: any;
-  coordinates: any;
-  line: any;
+  x = 0;
+  y = 0;
+  z = 0;
+  scaleX = 1;
+  scaleY = 1;
+  scaleZ = 1;
 
-  constructor(box_width: number, box_height: number, color: number) {
+  constructor(box_width, box_height, color) {
     this.box_height = box_height;
     this.box_width = box_width;
     this.color = color;
@@ -138,7 +108,7 @@ export class Person {
     });
 
     this.coordinates = new EXP.Transformation({
-      expr: (i: any, t: any, x: number, y: number, z: number) => [x, y, z],
+      expr: (i, y, z) => [x, y, z],
     });
 
     this.line = new EXP.LineOutput({
@@ -153,15 +123,7 @@ export class Person {
       line: this.line,
     };
   }
-  move({
-    a = 0,
-    b = 0,
-    c = 0,
-    scaleA,
-    scaleB,
-    scaleC,
-    length = 1000,
-  }: Transformation) {
+  move({ a = 0, b = 0, c = 0, scaleA, scaleB, scaleC, length = 1000 }) {
     this.scaleX = scaleA ?? this.scaleX;
     this.scaleY = scaleB ?? this.scaleY;
     this.scaleZ = scaleC ?? this.scaleZ;
@@ -173,7 +135,7 @@ export class Person {
     EXP.TransitionTo(
       this.coordinates,
       {
-        expr: (i: any, t: any, x: number, y: number, z: number) => [
+        expr: (i, y, z) => [
           this.scaleX * x + this.x,
           this.scaleY * y + this.y,
           this.scaleZ * z + this.z,

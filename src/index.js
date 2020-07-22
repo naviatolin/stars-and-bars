@@ -1,7 +1,7 @@
 import "./static/styles/style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { Diamond, Person } from "./intialize";
+import { Diamond, Person } from "initialize"
 
 import * as EXP from "./explanaria/main";
 
@@ -76,7 +76,7 @@ person1Ent.person.add(person1Ent.coordinates).add(person1Ent.line);
 person2Ent.person.add(person2Ent.coordinates).add(person2Ent.line);
 person3Ent.person.add(person3Ent.coordinates).add(person3Ent.line);
 
-three.on("update", function (time: any) {
+three.on("update", function (time) {
   [
     diamond1Ent.diamond,
     diamond2Ent.diamond,
