@@ -63,13 +63,13 @@ diamond5Ent.diamond
   .add(diamond5Ent.coordinates)
   .add(diamond5Ent.line);
 
-let person1 = new Person(params.box_width, params.box_height, params.purple);
+let person1 = new Person(params.box_width, params.box_height, params.purple, presentation);
 let person1Ent = person1.create_person();
 
-let person2 = new Person(params.box_width, params.box_height, params.green);
+let person2 = new Person(params.box_width, params.box_height, params.green, presentation);
 let person2Ent = person2.create_person();
 
-let person3 = new Person(params.box_width, params.box_height, params.red);
+let person3 = new Person(params.box_width, params.box_height, params.red, presentation);
 let person3Ent = person3.create_person();
 
 person1Ent.person.add(person1Ent.coordinates).add(person1Ent.line);
@@ -164,47 +164,47 @@ async function animate() {
   }
   /* --------------------------- slide 3  -------------------------- */
   {
-    // await presentation.nextSlide();
-    // // switching two diamonds out of the stack
-    // diamond1.move({ a: -2, b: 2 * params.diamond_radius, length: 500 });
-    // diamond3.move({ a: 2, b: -2 * params.diamond_radius, length: 500 });
+    await presentation.nextSlide();
+    // switching two diamonds out of the stack
+    diamond1.move({ a: -2, b: 2 * params.diamond_radius, length: 500 });
+    diamond3.move({ a: 2, b: -2 * params.diamond_radius, length: 500 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
-    // // switching two diamonds back into stack
-    // diamond1.move({ a: 2, b: 2 * params.diamond_radius, length: 500 });
-    // diamond3.move({ a: -2, b: -2 * params.diamond_radius, length: 500 });
+    // switching two diamonds back into stack
+    diamond1.move({ a: 2, b: 2 * params.diamond_radius, length: 500 });
+    diamond3.move({ a: -2, b: -2 * params.diamond_radius, length: 500 });
 
-    // await presentation.delay(reading_time + 300);
+    await presentation.delay(reading_time + 300);
   }
   /* -------------------------- slide 4 -------------------------- */
   {
-    // await presentation.nextSlide();
+    await presentation.nextSlide();
   }
   /* ------------------------------- slide 5 ------------------------------ */
   {
-    // await presentation.nextSlide();
+    await presentation.nextSlide();
 
-    // // aligning the bars to fit outside
-    // person1.move({ a: -6, scaleA: 4 });
-    // person2.move({ a: 2, scaleA: 2 });
-    // person3.move({ a: 8, scaleA: 2 });
+    // aligning the bars to fit outside
+    person1.move({ a: -6, scaleA: 4 });
+    person2.move({ a: 2, scaleA: 2 });
+    person3.move({ a: 8, scaleA: 2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
-    // // decreasing the height of the bars
-    // person1.move({ scaleB: 0.25 });
-    // person2.move({ scaleB: 0.25 });
-    // person3.move({ scaleB: 0.25 });
+    // decreasing the height of the bars
+    person1.move({ scaleB: 0.25 });
+    person2.move({ scaleB: 0.25 });
+    person3.move({ scaleB: 0.25 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
-    // // horizontal aligning of the diamonds
-    // diamond1.move({ a: -6 });
-    // diamond2.move({ a: -4 });
-    // diamond3.move({ a: -2 });
-    // diamond4.move({ a: 2 });
-    // diamond5.move({ a: 4 });
+    // horizontal aligning of the diamonds
+    diamond1.move({ a: -6 });
+    diamond2.move({ a: -4 });
+    diamond3.move({ a: -2 });
+    diamond4.move({ a: 2 });
+    diamond5.move({ a: 4 });
 
     //   EXP.TransitionTo(
     //     diamond2.coordinates,

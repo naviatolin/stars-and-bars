@@ -96,7 +96,7 @@ export class Diamond {
 /* ------------------------ Person Class Declaration ------------------------ */
 export class Person {
   
-  constructor(box_width, box_height, color) {
+  constructor(box_width, box_height, color, presentation) {
     this.x = 0;
     this.y = 0;
     this.z = 0;
@@ -106,6 +106,7 @@ export class Person {
     this.box_height = box_height;
     this.box_width = box_width;
     this.color = color;
+    this.presentation = presentation;
   }
 
   create_person() {
@@ -138,20 +139,26 @@ export class Person {
     this.scaleY = scaleB || this.scaleY;
     this.scaleZ = scaleC || this.scaleZ;
 
-    this.x = a + this.x;
-    this.y = b + this.y;
-    this.z = c + this.z;
+    let x_calc = this.x + a;
+    let y_calc = this.y + b;
+    let z_calc = this.z + c;
 
-    EXP.TransitionTo(
+    this.presentation.TransitionTo(
       this.coordinates,
       {
         'expr': (i, t, x, y, z) => [
-          this.scaleX * x + this.x,
-          this.scaleY * y + this.y,
-          this.scaleZ * z + this.z,
+          this.scaleX * x + x_calc,
+          this.scaleY * y + y_calc,
+          this.scaleZ * z + z_calc,
         ],
       },
       length
-    );
+      );
+      this.a = a;
+      this.b = b;
+      this.c = c;
+      this.x = this.x+this.a;
+      this.y = this.y+this.b;
+      this.z = this.z+this.c;
   }
 }
