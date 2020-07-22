@@ -60,7 +60,7 @@ export class Diamond {
     this.presentation.TransitionTo(
       this.coordinates,
       {
-        'expr': (i, x, y, z) => [
+        'expr': (i, t, x, y, z) => [
           this.scaleX * x + this.x,
           this.scaleY * y + this.y,
           this.scaleZ * z + this.z,
@@ -73,7 +73,7 @@ export class Diamond {
     EXP.TransitionTo(
       this.coordinates,
       {
-        'expr': (i, y, z) => [
+        'expr': (i, t, x, y, z) => [
           this.scaleX * x + this.x,
           this.scaleY * y + this.y,
           this.scaleZ * z + this.z,
@@ -81,6 +81,9 @@ export class Diamond {
       },
       500
     );
+  }
+  reset(){
+    EXP.TransitionTo(this.coordinates,{'expr': (i, t, x, y, z) => [x, y, z]}, 500);
   }
 }
 /* ------------------------ Person Class Declaration ------------------------ */
@@ -108,7 +111,7 @@ export class Person {
     });
 
     this.coordinates = new EXP.Transformation({
-      'expr': (i, x, y, z) => [x, y, z],
+      'expr': (i, t, x, y, z) => [x, y, z],
     });
 
     this.line = new EXP.LineOutput({
@@ -135,7 +138,7 @@ export class Person {
     EXP.TransitionTo(
       this.coordinates,
       {
-        'expr': (i, x, y, z) => [
+        'expr': (i, t, x, y, z) => [
           this.scaleX * x + this.x,
           this.scaleY * y + this.y,
           this.scaleZ * z + this.z,
