@@ -101,73 +101,73 @@ async function animate() {
   {
     // await presentation.nextSlide();
     // initializing the people and the diamonds in the slide.
-    // diamond1.move({ length: 5 });
-    // diamond2.move({ length: 5 });
-    // diamond3.move({ length: 5 });
-    // diamond4.move({ length: 5 });
-    // diamond5.move({ length: 5 });
+    diamond1.move({ length: 5 });
+    diamond2.move({ length: 5 });
+    diamond3.move({ length: 5 });
+    diamond4.move({ length: 5 });
+    diamond5.move({ length: 5 });
 
-    // person1.move({ length: 5 });
-    // person2.move({ length: 5 });
-    // person3.move({ length: 5 });
+    person1.move({ length: 5 });
+    person2.move({ length: 5 });
+    person3.move({ length: 5 });
 
     // moving the coordinates of the diamonds
-    // diamond1.move({ a: -6, b: 6 });
-    // diamond2.move({ a: -3, b: 6 });
-    // diamond3.move({ b: 6 });
-    // diamond4.move({ a: 3, b: 6 });
-    // diamond5.move({ a: 6, b: 6 });
+    diamond1.move({ a: -6, b: 6 });
+    diamond2.move({ a: -3, b: 6 });
+    diamond3.move({ b: 6 });
+    diamond4.move({ a: 3, b: 6 });
+    diamond5.move({ a: 6, b: 6 });
 
-    // // moving the coordinates of the people
-    // person1.move({ a: -6 });
-    // person3.move({ a: 6 });
+    // moving the coordinates of the people
+    person1.move({ a: -6 });
+    person3.move({ a: 6 });
 
-    // await presentation.delay(1000);
+    await presentation.delay(1000);
   }
 
   /* -------------------------- slide 2 -------------------------- */
   {
-    // await presentation.nextSlide();
+    await presentation.nextSlide();
 
-    // diamond1.last_state();
-    // diamond2.last_state();
-    // diamond3.last_state();
-    // diamond4.last_state();
-    // diamond5.last_state();
+    diamond1.last_state();
+    diamond2.last_state();
+    diamond3.last_state();
+    diamond4.last_state();
+    diamond5.last_state();
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
-    // // putting the diamonds into stacks
-    // // moving first 3 diamonds into person1
-    // diamond1.move({
-    //   b: -6 - params.box_height + params.diamond_radius,
-    //   length: 500,
-    // });
-    // diamond2.move({
-    //   a: -3,
-    //   b: -6 - params.box_height + 3 * params.diamond_radius,
-    //   length: 500,
-    // });
-    // diamond3.move({
-    //   a: -6,
-    //   b: -6 - params.box_height + 5 * params.diamond_radius,
-    //   length: 500,
-    // });
+    // putting the diamonds into stacks
+    // moving first 3 diamonds into person1
+    diamond1.move({
+      b: -6 - params.box_height + params.diamond_radius,
+      length: 500,
+    });
+    diamond2.move({
+      a: -3,
+      b: -6 - params.box_height + 3 * params.diamond_radius,
+      length: 500,
+    });
+    diamond3.move({
+      a: -6,
+      b: -6 - params.box_height + 5 * params.diamond_radius,
+      length: 500,
+    });
 
-    // // moving fourth diamond into person2
-    // diamond4.move({
-    //   a: -3,
-    //   b: -6 - params.box_height + params.diamond_radius,
-    //   length: 500,
-    // });
+    // moving fourth diamond into person2
+    diamond4.move({
+      a: -3,
+      b: -6 - params.box_height + params.diamond_radius,
+      length: 500,
+    });
 
-    // // moving fifth diamond into person3
-    // diamond5.move({
-    //   b: -6 - params.box_height + params.diamond_radius,
-    //   length: 500,
-    // });
+    // moving fifth diamond into person3
+    diamond5.move({
+      b: -6 - params.box_height + params.diamond_radius,
+      length: 500,
+    });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
   /* --------------------------- slide 3  -------------------------- */
   {
