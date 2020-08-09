@@ -6,7 +6,6 @@ function polarToCartesian(theta, r) {
 
 /* ------------------------ Diamond Class Declaration ----------------------- */
 export class Diamond {
-  
   constructor(diamond_radius, presentation) {
     this.blue = 0x00ffee;
     this.x = 0;
@@ -66,36 +65,33 @@ export class Diamond {
         ],
       },
       length
-      );
-      this.a = a;
-      this.b = b;
-      this.c = c;
-      this.x = this.x+this.a;
-      this.y = this.y+this.b;
-      this.z = this.z+this.c;
+    );
+    this.a = a;
+    this.b = b;
+    this.c = c;
+    this.x = this.x + this.a;
+    this.y = this.y + this.b;
+    this.z = this.z + this.c;
   }
 
-  last_state() {
+  reset() {
+    this.coordinates,
+    this.scaleX = 1;
+    this.scaleY = 1;
+    this.scaleZ = 1;
+    
+    this.x = 0;
+    this.y = 0;
+    this.z = 0;
+    
     EXP.TransitionTo(
-      this.coordinates,
-      {
-        'expr': (i, t, x, y, z) => [
-          this.scaleX * x + this.x,
-          this.scaleY * y + this.y,
-          this.scaleZ * z + this.z,
-        ],
-      },
+      { 'expr': (i, t, x, y, z) => [x, y, z], },
       500
     );
-  }
-
-  reset(){
-    EXP.TransitionTo(this.coordinates,{'expr': (i, t, x, y, z) => [x, y, z]}, 500);
   }
 }
 /* ------------------------ Person Class Declaration ------------------------ */
 export class Person {
-  
   constructor(box_width, box_height, color, presentation) {
     this.x = 0;
     this.y = 0;
@@ -108,7 +104,7 @@ export class Person {
     this.color = color;
     this.presentation = presentation;
   }
-
+  
   create_person() {
     this.person = new EXP.Area({
       bounds: [
@@ -117,17 +113,17 @@ export class Person {
       ],
       numItems: 2,
     });
-
+    
     this.coordinates = new EXP.Transformation({
       'expr': (i, t, x, y, z) => [x, y, z],
     });
-
+    
     this.line = new EXP.LineOutput({
       width: 5,
       color: this.color,
       opacity: 1,
     });
-
+    
     return {
       person: this.person,
       coordinates: this.coordinates,
@@ -138,11 +134,11 @@ export class Person {
     this.scaleX = scaleA || this.scaleX;
     this.scaleY = scaleB || this.scaleY;
     this.scaleZ = scaleC || this.scaleZ;
-
+    
     let x_calc = this.x + a;
     let y_calc = this.y + b;
     let z_calc = this.z + c;
-
+    
     this.presentation.TransitionTo(
       this.coordinates,
       {
@@ -157,8 +153,23 @@ export class Person {
       this.a = a;
       this.b = b;
       this.c = c;
-      this.x = this.x+this.a;
-      this.y = this.y+this.b;
-      this.z = this.z+this.c;
+      this.x = this.x + this.a;
+      this.y = this.y + this.b;
+      this.z = this.z + this.c;
+    }
+    reset() {
+      this.scaleX = 1;
+      this.scaleY = 1;
+      this.scaleZ = 1;
+
+      this.x = 0;
+      this.y = 0;
+      this.z = 0;
+      EXP.TransitionTo(
+        this.coordinates,
+        { 'expr': (i, t, x, y, z) => [x, y, z], },
+        500
+      );
+    }
   }
-}
+  

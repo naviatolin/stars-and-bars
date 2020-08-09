@@ -1,14 +1,14 @@
 import "./static/styles/style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { Diamond, Person } from "./initialize"
+import { Diamond, Person } from "./initialize";
 
 import * as EXP from "./explanaria/main";
 
 // setting up three
 var three = EXP.setupThree(60, 25);
 var controls = new OrbitControls(three.camera, three.renderer.domElement);
-controls.enableRotate = true;
+controls.enableRotate = false;
 
 three.camera.position.set(0, 0, 10);
 three.camera.lookAt(new THREE.Vector3(0, 0, 0));
@@ -63,13 +63,28 @@ diamond5Ent.diamond
   .add(diamond5Ent.coordinates)
   .add(diamond5Ent.line);
 
-let person1 = new Person(params.box_width, params.box_height, params.purple, presentation);
+let person1 = new Person(
+  params.box_width,
+  params.box_height,
+  params.purple,
+  presentation
+);
 let person1Ent = person1.create_person();
 
-let person2 = new Person(params.box_width, params.box_height, params.green, presentation);
+let person2 = new Person(
+  params.box_width,
+  params.box_height,
+  params.green,
+  presentation
+);
 let person2Ent = person2.create_person();
 
-let person3 = new Person(params.box_width, params.box_height, params.red, presentation);
+let person3 = new Person(
+  params.box_width,
+  params.box_height,
+  params.red,
+  presentation
+);
 let person3Ent = person3.create_person();
 
 person1Ent.person.add(person1Ent.coordinates).add(person1Ent.line);
@@ -89,7 +104,6 @@ three.on("update", function (time) {
   ].map((i) => i.activate(time.t));
   controls.update();
 });
-
 
 async function animate() {
   controls.enablePan = false;
@@ -135,7 +149,7 @@ async function animate() {
       b: -6 - params.box_height + params.diamond_radius,
       length: 500,
     });
-    
+
     diamond2.move({
       a: -3,
       b: -6 - params.box_height + 3 * params.diamond_radius,
@@ -184,9 +198,13 @@ async function animate() {
   /* ------------------------------- slide 5 ------------------------------ */
   {
     await presentation.nextSlide();
+    // reset the people
+    person1.reset();
+    person2.reset();
+    person3.reset();
 
     // aligning the bars to fit outside
-    person1.move({ a: -6, scaleA: 4 });
+    person1.move({ a:-6, scaleA: 4 });
     person2.move({ a: 2, scaleA: 2 });
     person3.move({ a: 8, scaleA: 2 });
 
@@ -200,11 +218,17 @@ async function animate() {
     await presentation.delay(reading_time);
 
     // horizontal aligning of the diamonds
-    diamond1.move({ a: -6 });
-    diamond2.move({ a: -4 });
-    diamond3.move({ a: -2 });
+    diamond1.reset();
+    diamond2.reset();
+    diamond3.reset();
+    diamond4.reset();    
+    diamond5.reset();    
+
+    diamond1.move({ a: -8 });
+    diamond2.move({ a: -6 });
+    diamond3.move({ a: -4 });
     diamond4.move({ a: 2 });
-    diamond5.move({ a: 4 });
+    diamond5.move({ a: 8 });
 
     //   EXP.TransitionTo(
     //     diamond2.coordinates,
