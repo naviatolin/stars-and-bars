@@ -6,8 +6,8 @@ function polarToCartesian(theta, r) {
 
 /* ------------------------ Diamond Class Declaration ----------------------- */
 export class Diamond {
-  constructor(diamond_radius, presentation) {
-    this.blue = 0x00ffee;
+  constructor(diamond_radius, presentation, color) {
+    this.color = color;
     this.x = 0;
     this.y = 0;
     this.z = 0;
@@ -34,7 +34,7 @@ export class Diamond {
     });
     this.line = new EXP.LineOutput({
       width: 3,
-      color: this.blue,
+      color: this.color,
       opacity: 1,
     });
 

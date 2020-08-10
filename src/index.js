@@ -25,21 +25,23 @@ let params = {
   purple: 0x2a0a4d,
   green: 0x0a4d1c,
   red: 0x6e0404,
+  blue: 0x00ffee,
+  wrong_red: 0xed2424,
 };
 
-let diamond1 = new Diamond(params.diamond_radius, presentation);
+let diamond1 = new Diamond(params.diamond_radius, presentation, params.blue);
 let diamond1Ent = diamond1.create_diamond();
 
-let diamond2 = new Diamond(params.diamond_radius, presentation);
+let diamond2 = new Diamond(params.diamond_radius, presentation, params.blue);
 let diamond2Ent = diamond2.create_diamond();
 
-let diamond3 = new Diamond(params.diamond_radius, presentation);
+let diamond3 = new Diamond(params.diamond_radius, presentation, params.blue);
 let diamond3Ent = diamond3.create_diamond();
 
-let diamond4 = new Diamond(params.diamond_radius, presentation);
+let diamond4 = new Diamond(params.diamond_radius, presentation, params.blue);
 let diamond4Ent = diamond4.create_diamond();
 
-let diamond5 = new Diamond(params.diamond_radius, presentation);
+let diamond5 = new Diamond(params.diamond_radius, presentation, params.blue);
 let diamond5Ent = diamond5.create_diamond();
 
 diamond1Ent.diamond
@@ -261,5 +263,44 @@ async function animate() {
   }
 
   /* --------------------------------- slide 8 -------------------------------- */
+  {
+    await presentation.nextSlide();
+
+    // allowing the user to read the text before animating begins
+    await presentation.delay(reading_time);
+
+    // move the diamond up
+    diamond3.move({ b: 2 });
+
+    await presentation.delay(reading_time);
+
+    // move the lines for person 2 in
+    person2.move({ a: 1, scaleA: 2 });
+
+    await presentation.delay(reading_time);
+
+    // move diamond over
+    diamond3.move({ a: -2 });
+
+    await presentation.delay(reading_time);
+
+    // move diamond down
+    diamond3.move({ b: -2 });
+    await presentation.delay(reading_time);
+
+    // bounce diamond up and down
+    let i;
+    for (i = 0; i < 3; i++) {
+      diamond3.move({ b: 2, length: 500 });
+      await presentation.delay(reading_time);
+
+      diamond3.move({ b: -2, length: 500 });
+      await presentation.delay(reading_time);
+    }
+  }
+
+  /* -------------------------------- slide9 9 -------------------------------- */
+  {
+  }
 }
 window.onload = animate;
