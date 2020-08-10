@@ -335,25 +335,25 @@ async function animate() {
 
     person1.move({ a: -6, scaleA: 4, scaleB: 0.25 });
     person3.move({ a: 7, scaleA: 3, scaleB: 0.25 });
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // removing the objects
     person1.switch(0);
     person2.switch(0);
     person3.switch(0);
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // making lines reappear in the slideshow
     line1.switch(1);
     line1.move({ a: -2 });
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     line2.switch(1);
     line2.move({ a: 4 });
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // rearrange the rest of the diamonds
     diamond1.move({ a: 2 });
@@ -372,6 +372,55 @@ async function animate() {
   }
 
   /* -------------------------------- slide 12 -------------------------------- */
+  {
+    await presentation.nextSlide();
+
+    // moving the lines up
+    line1.move({ b: 3 });
+    line2.move({ b: 3 });
+
+    await presentation.delay(reading_time);
+
+    // moving all of the diamonds apart with even spacing
+    diamond1.move({ a: 2 });
+    diamond2.move({ a: 2 });
+    diamond5.move({ a: -2 });
+
+    await presentation.delay(reading_time);
+
+    // flip two of the diamonds around
+    diamond1.move({ b: -2 });
+    diamond5.move({ b: -2 });
+
+    await presentation.delay(reading_time);
+
+    diamond1.move({ a: 8 });
+    diamond5.move({ a: -8 });
+
+    await presentation.delay(reading_time);
+    
+    diamond1.move({ b: 2 });
+    diamond5.move({ b: 2 });
+    
+    await presentation.delay(reading_time);
+
+    // flip them back
+    diamond1.move({ b: -2 });
+    diamond5.move({ b: -2 });
+
+    await presentation.delay(reading_time);
+
+    diamond5.move({ a: 8 });
+    diamond1.move({ a: -8 });
+
+    await presentation.delay(reading_time);
+
+    diamond1.move({ b: 2 });
+    diamond5.move({ b: 2 });
+    
+  }
+
+  /* -------------------------------- slide 13 -------------------------------- */
   {
     
   }
