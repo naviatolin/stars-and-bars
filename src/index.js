@@ -1,7 +1,7 @@
 import "./static/styles/style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { Diamond, Person } from "./initialize";
+import { Diamond, Person, Line } from "./initialize";
 
 import * as EXP from "./explanaria/main";
 
@@ -26,7 +26,7 @@ let params = {
   green: 0x0a4d1c,
   red: 0x6e0404,
   blue: 0x00ffee,
-  wrong_red: 0xed2424,
+  black: 0x000000,
 };
 
 let diamond1 = new Diamond(params.diamond_radius, presentation, params.blue);
@@ -69,6 +69,7 @@ let person1 = new Person(
   params.box_width,
   params.box_height,
   params.purple,
+  2,
   presentation
 );
 let person1Ent = person1.create_person();
@@ -77,6 +78,7 @@ let person2 = new Person(
   params.box_width,
   params.box_height,
   params.green,
+  2,
   presentation
 );
 let person2Ent = person2.create_person();
@@ -85,6 +87,7 @@ let person3 = new Person(
   params.box_width,
   params.box_height,
   params.red,
+  2,
   presentation
 );
 let person3Ent = person3.create_person();
@@ -92,6 +95,17 @@ let person3Ent = person3.create_person();
 person1Ent.person.add(person1Ent.coordinates).add(person1Ent.line);
 person2Ent.person.add(person2Ent.coordinates).add(person2Ent.line);
 person3Ent.person.add(person3Ent.coordinates).add(person3Ent.line);
+
+// creating vertial seperation linesz
+let line1 = new Line([0, 0], [-1, 1], params.black, presentation);
+let line1Ent = line1.create_line();
+
+line1Ent.line.add(line1Ent.coordinates).add(line1Ent.output);
+
+let line2 = new Line([0, 0], [-1, 1], params.black, presentation);
+let line2Ent = line2.create_line();
+
+line2Ent.line.add(line2Ent.coordinates).add(line2Ent.output);
 
 three.on("update", function (time) {
   [
@@ -103,6 +117,8 @@ three.on("update", function (time) {
     person1Ent.person,
     person2Ent.person,
     person3Ent.person,
+    line1Ent.line,
+    line2Ent.line,
   ].map((i) => i.activate(time.t));
   controls.update();
 });
@@ -115,7 +131,6 @@ async function animate() {
 
   /* --------------------------- slide 1 -------------------------- */
   {
-    // await presentation.nextSlide();
     // initializing the people and the diamonds in the slide.
     diamond1.move({ length: 5 });
     diamond2.move({ length: 5 });
@@ -267,54 +282,98 @@ async function animate() {
     await presentation.nextSlide();
 
     // allowing the user to read the text before animating begins
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // move the diamond up
     diamond3.move({ b: 2 });
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // move the lines for person 2 in
     person2.move({ a: 1, scaleA: 2 });
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // move diamond over
     diamond3.move({ a: -2 });
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // move diamond down
     diamond3.move({ b: -2 });
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // bounce diamond up and down
     let i;
     for (i = 0; i < 3; i++) {
       diamond3.move({ b: 2, length: 500 });
-      await presentation.delay(reading_time);
+      // await presentation.delay(reading_time);
 
       diamond3.move({ b: -2, length: 500 });
-      await presentation.delay(reading_time);
+      // await presentation.delay(reading_time);
     }
 
     // move diamond back
     diamond3.move({ b: 2 });
     person2.move({ a: -1, scaleA: 3 });
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     diamond3.move({ a: 2 });
     diamond3.move({ b: -2 });
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
   }
 
   /* -------------------------------- slide 9 -------------------------------- */
   {
     await presentation.nextSlide();
 
-    //
+    // merging the two lines together
+    person1.reset();
+    person3.reset();
+
+    person1.move({ a: -6, scaleA: 4, scaleB: 0.25 });
+    person3.move({ a: 7, scaleA: 3, scaleB: 0.25 });
+    await presentation.delay(reading_time);
+
+    // removing the objects
+    person1.switch(0);
+    person2.switch(0);
+    person3.switch(0);
+
+    await presentation.delay(reading_time);
+
+    // making lines reappear in the slideshow
+    line1.switch(1);
+    line1.move({ a: -2 });
+
+    await presentation.delay(reading_time);
+
+    line2.switch(1);
+    line2.move({ a: 4 });
+
+    await presentation.delay(reading_time);
+
+    // rearrange the rest of the diamonds
+    diamond1.move({ a: 2 });
+    diamond2.move({ a: 2 });
+    diamond5.move({ a: -2 });
+  }
+
+  /* -------------------------------- slide 10 -------------------------------- */
+  {
+    await presentation.nextSlide();
+  }
+
+  /* -------------------------------- slide 11 -------------------------------- */
+  {
+    await presentation.nextSlide();
+  }
+
+  /* -------------------------------- slide 12 -------------------------------- */
+  {
+    
   }
 }
 window.onload = animate;
