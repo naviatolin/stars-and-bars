@@ -236,52 +236,28 @@ async function animate() {
     // moving one diamond up
     diamond3.move({ b: 2 });
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // moving the lines over
     person1.move({ a: -1, scaleA: 3 });
     person2.move({ a: -1, scaleA: 3 });
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // moving diamond over again
     diamond3.move({ a: 4 });
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
 
     // moving diamond down again
     diamond3.move({ b: -2 });
 
-    await presentation.delay(reading_time);
+    // await presentation.delay(reading_time);
   }
 
   /* --------------------------------- slide 7 -------------------------------- */
   {
-    //   await presentation.nextSlide();
-    //   EXP.TransitionTo(
-    //     diamond3.coordinates,
-    //     { expr: (i, t, x, y, z) => [x, y + 1, z] },
-    //     1000
-    //   );
-    //   await presentation.delay(1000);
-    //   EXP.TransitionTo(
-    //     diamond3.coordinates,
-    //     { expr: (i, t, x, y, z) => [x, y, z] },
-    //     1000
-    //   );
-    //   await presentation.delay(1000);
-    //   EXP.TransitionTo(
-    //     diamond3.coordinates,
-    //     { expr: (i, t, x, y, z) => [x, y + 1, z] },
-    //     1000
-    //   );
-    //   await presentation.delay(1000);
-    //   EXP.TransitionTo(
-    //     diamond3.coordinates,
-    //     { expr: (i, t, x, y, z) => [x, y, z] },
-    //     1000
-    //   );
-    //   await presentation.delay(1000);
+    await presentation.nextSlide();
   }
 
   /* --------------------------------- slide 8 -------------------------------- */
