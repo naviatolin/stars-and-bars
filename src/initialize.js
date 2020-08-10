@@ -85,9 +85,9 @@ export class Diamond {
 
     EXP.TransitionTo({ expr: (i, t, x, y, z) => [x, y, z] }, 50);
   }
-  switch(opacity) {
+  switch(opacity, length = 300) {
     this.opacity = opacity;
-    this.presentation.TransitionTo(this.line, { opacity: this.opacity }, 300);
+    this.presentation.TransitionTo(this.line, { opacity: this.opacity }, length);
   }
 }
 /* ------------------------ Person Class Declaration ------------------------ */
@@ -244,12 +244,4 @@ export class Line {
     this.opacity = opacity;
     this.presentation.TransitionTo(this.output, { opacity: opacity }, length);
   }
-}
-
-export function makeTexPlane(textureName, width, height, apparentWidth){
-
-  var tex = new THREE.TextureLoader().load( textureName );
-  var plane = new THREE.Mesh(new THREE.PlaneGeometry(apparentWidth, apparentWidth*height/width,1,1), new THREE.MeshBasicMaterial({ opacity: 0.0, transparent: true, side: THREE.BothSides, map:tex}));
-  three.scene.add(plane);
-  return plane;
 }

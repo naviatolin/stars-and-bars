@@ -126,53 +126,107 @@
     <section class="exp-label exp-slide" style="opacity: 0;">
       <h1>15: So there are four slots.</h1>
       <aside>
-        Let's number them!      
+        And they can either have a line in them or not. There are two lines that need to be used. Since all of the diamonds are the same, let's get rid of them! 
       </aside>
     </section>
     
     <!-- slide 16 -->
     <section class="exp-label exp-slide" style="opacity: 0;">
-      <h1>16: Imagine that we can reorder these slots and the first two will be where we place the lines.</h1>
+      <h1>16: We can place the lines in these slots.</h1>
       <aside>
-        For example, if the order is 4, 3, 2, 1. Then the fourth slot and the third slot is where we would place the lines.      
+        We can place the two lines in these four slots in a bunch of different ways. The way that we place lines in these slots shows how many diamonds one robber has.
       </aside>
     </section>
     
     <!-- slide 17 -->
     <section class="exp-label exp-slide" style="opacity: 0;">
-      <h1>17: There are four options for the first slot, three options for the second slot, two options for the next slot, and one option for the last slot.</h1>
+      <h1>17: What if we said the first two slots were where we always placed the lines?</h1>
       <aside>
-        So we could find the total number of combinations by multiplying those numbers: 4 x 3 x 2 x 1.     
+        So, we keep the lines in the same spot and reorder the slots instead? 
       </aside>
     </section>
     
+    
     <!-- slide 18 -->
     <section class="exp-label exp-slide" style="opacity: 0;">
-      <h1>18: We don't necessarily care about the last two since they are blanks.</h1>
+      <h1>18: What does this mean?</h1>
       <aside>
-        For the last two, there are 2 options for the first slot, and 1 option for the last slot. So, 2 x 1 total number of combinations.     
+        This means that the teal and pink slots are the ones that will have lines in them.
       </aside>
     </section>
     
     <!-- slide 19 -->
     <section class="exp-label exp-slide" style="opacity: 0;">
-      <h1>19: We can divide the total number of combinations for yes and no, by the total number of combinations for no.</h1>
+      <h1>19: We can remember that the original order of the slots was: yellow, green, teal, and pink.</h1>
       <aside>
-        4 x 3 x 2 x 1 / 2 x 1.     
+        That means that the lines are placed in the 3rd and 4th slots.
       </aside>
     </section>
     
     <!-- slide 20 -->
     <section class="exp-label exp-slide" style="opacity: 0;">
-      <h1>20: We also don't necessarily care about the order of the first two either.</h1>
+      <h1>20: This is how the distribution in this scenario would look.</h1>
       <aside>
-        They are both identical lines and the order of them doesn't matter.     
+        So if we find all the combinations of the first two slots, we can figure out all the different ways we could give 5 diamonds to 3 robbers. 
       </aside>
     </section>
     
     <!-- slide 21 -->
     <section class="exp-label exp-slide" style="opacity: 0;">
-      <h1>21: In the same way, there are two options for the first one and two options for the second one.</h1>
+      <h1>21: How do we do this?</h1>
+      <aside>
+        We will cover the way to find all the possible combinations mathematically now.
+      </aside>
+    </section>
+    
+    <!-- slide 22 -->
+    <section class="exp-label exp-slide" style="opacity: 0;">
+      <h1>22: As discussed before, the first two positions are where the lines will be placed and the last two slots are where nothing will be placed.</h1>
+    </section>
+
+    <!-- slide 23 -->
+    <section class="exp-label exp-slide" style="opacity: 0;">
+      <h1>23: Let's start filling the positions in order from left to right.</h1>
+      <aside>
+        There are four (4) slots for the first position, three (3) options for the second position, two (2) options for the next position, and one (1) option for the last position.     
+      </aside>
+    </section>
+
+    <!-- slide 24 -->
+    <section class="exp-label exp-slide" style="opacity: 0;">
+      <h1>24: Multiplying the number of options for each position gives us the number of possible arrangements.</h1>
+      <aside>
+        We can find the total number of orderings by multiplying those numbers: <br> 4 x 3 x 2 x 1
+      </aside>
+    </section>
+
+    <!-- slide 25 -->
+    <section class="exp-label exp-slide" style="opacity: 0;">
+      <h1>25: But we don't care about the ordering of the last two. All that matters is that they are not in the first two positions. </h1>
+      <aside>
+        There are two (2) options for the 3rd position and one (1) option for the 4th position. Therefore the total number of orderings are: <br> 2 x 1
+      </aside>
+    </section>
+
+    <!-- slide 26 -->
+    <section class="exp-label exp-slide" style="opacity: 0;">
+      <h1>26: We divide the total number of orderings for all the positions by the total number of orderings for just the last two positions.</h1>
+      <aside>
+        This is because we don't care about the ordering of the last two: <br> (4 x 3 x 2 x 1) / (2 x 1)     
+      </aside>
+    </section>
+    
+    <!-- slide 27 -->
+    <section class="exp-label exp-slide" style="opacity: 0;">
+      <h1>27: But wait! We also do not care about the ordering of the first two either!</h1>
+      <aside>
+        All that matters it that they have a line in them.     
+      </aside>
+    </section>
+    
+    <!-- slide 28 -->
+    <section class="exp-label exp-slide" style="opacity: 0;">
+      <h1>28: In the same way, there are two options for the first one and two options for the second one.</h1>
       <aside>
         The total number of combinations is 2 x 1.    
       </aside>
@@ -180,15 +234,15 @@
     
     <!-- slide 22 -->
     <section class="exp-label exp-slide" style="opacity: 0;">
-      <h1>22: Therefore we can divide the final number again by (2 x 1).</h1>
+      <h1>29: Since we don't care about the ordering of these to, same as before, we can divide the final number by the number of orderings for the first two.</h1>
       <aside>
-        (4 x 3 x 2 x 1/ 2 x 1)/(2 x 1)
+        (4 x 3 x 2 x 1) / (2 x 1) / (2 x 1) = 6
       </aside>
     </section>
     
     <!-- slide 23 -->
     <section class="exp-label exp-slide" style="opacity: 0;">
-      <h1>23: And thats the answer!</h1>
+      <h1>2: There are 6 different ways to distribute 5 idential diamonds to 3 different robbers!</h1>
       <aside>
         You just solved a college level discrete mathematics problem! Wow - you rock!
       </aside>

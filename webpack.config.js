@@ -9,7 +9,7 @@ module.exports = {
     filename: "bundle.js",
   },
   resolve: {
-    extensions: [".js", ".jsx", ".json", ".css"],
+    extensions: [".js", ".jsx", ".json", ".css", ".png"],
   },
   module: {
     rules: [
@@ -17,6 +17,15 @@ module.exports = {
       {
         test: /\.(png|woff|woff2|eot|ttf|svg)$/,
         loader: "url-loader?limit=100000",
+      },
+      {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 25000,
+          },
+        },
       },
     ],
   },
