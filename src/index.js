@@ -297,10 +297,24 @@ async function animate() {
       diamond3.move({ b: -2, length: 500 });
       await presentation.delay(reading_time);
     }
+
+    // move diamond back
+    diamond3.move({ b: 2 });
+    person2.move({ a: -1, scaleA: 3 });
+
+    await presentation.delay(reading_time);
+
+    diamond3.move({ a: 2 });
+    diamond3.move({ b: -2 });
+
+    await presentation.delay(reading_time);
   }
 
-  /* -------------------------------- slide9 9 -------------------------------- */
+  /* -------------------------------- slide 9 -------------------------------- */
   {
+    await presentation.nextSlide();
+
+    //
   }
 }
 window.onload = animate;
