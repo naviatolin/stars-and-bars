@@ -157,7 +157,7 @@ async function animate() {
 
   /* --------------------------- slide 1 -------------------------- */
   {
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
     // initializing the people and the diamonds in the slide.
     diamond1.move({ length: 5 });
     diamond2.move({ length: 5 });
@@ -180,13 +180,13 @@ async function animate() {
     person1.move({ a: -6 });
     person3.move({ a: 6 });
 
-    // await presentation.delay(1000);
+    await presentation.delay(1000);
   }
 
   /* -------------------------- slide 2 -------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // putting the diamonds into stacks
     // moving first 3 diamonds into person1
@@ -219,34 +219,34 @@ async function animate() {
       length: 500,
     });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
   /* --------------------------- slide 3  -------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // switching two diamonds out of the stack
     diamond1.move({ a: -2, b: 2 * params.diamond_radius, length: 500 });
     diamond3.move({ a: 2, b: -2 * params.diamond_radius, length: 500 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // switching two diamonds back into stack
     diamond1.move({ a: 2, b: 2 * params.diamond_radius, length: 500 });
     diamond3.move({ a: -2, b: -2 * params.diamond_radius, length: 500 });
 
-    // await presentation.delay(reading_time + 300);
+    await presentation.delay(reading_time + 300);
   }
   /* -------------------------- slide 4 -------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
   }
   /* ------------------------------- slide 5 ------------------------------ */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // reset the people
     person1.reset();
@@ -258,14 +258,14 @@ async function animate() {
     person2.move({ a: 2, scaleA: 2 });
     person3.move({ a: 8, scaleA: 2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // decreasing the height of the bars
     person1.move({ scaleB: 0.25 });
     person2.move({ scaleB: 0.25 });
     person3.move({ scaleB: 0.25 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // horizontal aligning of the diamonds
     diamond1.reset();
@@ -283,89 +283,89 @@ async function animate() {
   /* ------------------------------- slide 6 ------------------------------ */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // moving one diamond up
     diamond3.move({ b: 2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // moving the lines over
     person1.move({ a: -1, scaleA: 3 });
     person2.move({ a: -1, scaleA: 3 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // moving diamond over again
     diamond3.move({ a: 4 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // moving diamond down again
     diamond3.move({ b: -2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
 
   /* --------------------------------- slide 7 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
   }
 
   /* --------------------------------- slide 8 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // allowing the user to read the text before animating begins
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // move the diamond up
     diamond3.move({ b: 2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // move the lines for person 2 in
     person2.move({ a: 1, scaleA: 2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // move diamond over
     diamond3.move({ a: -2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // move diamond down
     diamond3.move({ b: -2 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // bounce diamond up and down
     let i;
     for (i = 0; i < 3; i++) {
       diamond3.move({ b: 2, length: 500 });
-      // await presentation.delay(reading_time);
+      await presentation.delay(reading_time);
 
       diamond3.move({ b: -2, length: 500 });
-      // await presentation.delay(reading_time);
+      await presentation.delay(reading_time);
     }
 
     // move diamond back
     diamond3.move({ b: 2 });
     person2.move({ a: -1, scaleA: 3 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     diamond3.move({ a: 2 });
     diamond3.move({ b: -2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
 
   /* -------------------------------- slide 9 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // merging the two lines together
     person1.reset();
@@ -373,25 +373,25 @@ async function animate() {
 
     person1.move({ a: -6, scaleA: 4, scaleB: 0.25 });
     person3.move({ a: 7, scaleA: 3, scaleB: 0.25 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // removing the objects
     person1.switch(0);
     person2.switch(0);
     person3.switch(0);
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // making lines reappear in the slideshow
     line1.switch(1);
     line1.move({ a: -2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     line2.switch(1);
     line2.move({ a: 4 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // rearrange the rest of the diamonds
     diamond1.move({ a: 2 });
@@ -402,59 +402,59 @@ async function animate() {
   /* -------------------------------- slide 10 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
   }
 
   /* -------------------------------- slide 11 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
   }
 
   /* -------------------------------- slide 12 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // moving the lines up
     line1.move({ b: 3 });
     line2.move({ a: -2, b: 3 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // moving all of the diamonds apart with even spacing
     diamond1.move({ a: 2 });
     diamond2.move({ a: 2 });
     diamond5.move({ a: -2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // flip two of the diamonds around
     diamond1.move({ b: -2 });
     diamond5.move({ b: -2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     diamond1.move({ a: 8 });
     diamond5.move({ a: -8 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     diamond1.move({ b: 2 });
     diamond5.move({ b: 2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // flip them back
     diamond1.move({ b: -2 });
     diamond5.move({ b: -2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     diamond5.move({ a: 8 });
     diamond1.move({ a: -8 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     diamond1.move({ b: 2 });
     diamond5.move({ b: 2 });
@@ -463,7 +463,7 @@ async function animate() {
   /* -------------------------------- slide 13 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // spreading the diamonds out first
     diamond1.move({ a: -4 });
@@ -471,36 +471,36 @@ async function animate() {
     diamond4.move({ a: 2 });
     diamond5.move({ a: 4 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // showing and moving all of the slots
     slot1.switch(1);
     slot1.move({ a: -6, b: -1.75 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot2.switch(1);
     slot2.move({ a: -2, b: -1.75 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot3.switch(1);
     slot3.move({ a: 2, b: -1.75 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot4.switch(1);
     slot4.move({ a: 6, b: -1.75 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
 
   /* -------------------------------- slide 14 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // placing lines in the slots
     line1.move({ a: -4, b: -3 });
     line2.move({ b: -3 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // fading out the slots
     slot1.switch(0, 1000);
@@ -508,7 +508,7 @@ async function animate() {
     slot3.switch(0, 1000);
     slot4.switch(0, 1000);
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // bringing the diamonds closer together
     diamond1.move({ a: 2 });
@@ -516,7 +516,7 @@ async function animate() {
     diamond2.move({ a: 2 });
     diamond5.move({ a: -2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // pushing the diamonds apart again
     diamond1.move({ a: -2 });
@@ -524,64 +524,64 @@ async function animate() {
     diamond2.move({ a: -2 });
     diamond5.move({ a: 2 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // moving the lines up again
     line1.move({ a: 4, b: 3 });
     line2.move({ b: 3 });
 
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // making the slots reappear again
     slot1.switch(1, 1000);
     slot2.switch(1, 1000);
     slot3.switch(1, 1000);
     slot4.switch(1, 1000);
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // placing lines in slots
     line1.move({ b: -3 });
     line2.move({ a: 4, b: -3 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // fading out the slots
     slot1.switch(0, 1000);
     slot2.switch(0, 1000);
     slot3.switch(0, 1000);
     slot4.switch(0, 1000);
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // bringing the diamonds closer together
     diamond1.move({ a: 2 });
     diamond4.move({ a: -2 });
     line2.move({ a: -2 });
     diamond5.move({ a: -2 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // pushing the diamonds apart again
     diamond1.move({ a: -2 });
     diamond4.move({ a: 2 });
     line2.move({ a: 2 });
     diamond5.move({ a: 2 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // moving the lines back up again
     line1.move({ b: 3 });
     line2.move({ a: -4, b: 3 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // making the slots appear again
     slot1.switch(1, 1000);
     slot2.switch(1, 1000);
     slot3.switch(1, 1000);
     slot4.switch(1, 1000);
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
 
   /* -------------------------------- slide 15 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // remove the diamonds from the canvas
     diamond1.switch(0, 1000);
@@ -589,14 +589,14 @@ async function animate() {
     diamond3.switch(0, 1000);
     diamond4.switch(0, 1000);
     diamond5.switch(0, 1000);
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // move the slots together
     slot1.move({ b: 1.75 });
     slot2.move({ b: 1.75 });
     slot3.move({ b: 1.75 });
     slot4.move({ b: 1.75 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // move all of the slots closer together
     slot1.reset();
@@ -608,87 +608,87 @@ async function animate() {
     slot2.move({ a: -1 });
     slot3.move({ a: 1 });
     slot4.move({ a: 3 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
 
   /* -------------------------------- slide 16 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // try placing lines in the slots
     line1.move({ a: 1, b: -1.5 });
     line2.move({ a: 1, b: -1.5 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // move around line 2
     line2.move({ b: 1.5 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
     line2.move({ a: -6 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
     line2.move({ b: -1.5 });
   }
 
   /* -------------------------------- slide 17 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time)
+    await presentation.delay(3*reading_time)
 
     // reorder the slots
     slot1.move({ b: -1 });
     slot2.move({ b: -1 });
     slot3.move({ b: -1 });
     slot4.move({ b: -1 });
-    // await presentation.delay(reading_time)
+    await presentation.delay(reading_time)
 
     // place the slots in a different order
     slot3.move({ a: -4, b: 1 });
-    // await presentation.delay(reading_time)
+    await presentation.delay(reading_time)
     slot2.move({ a: 2, b: 1 });
-    // await presentation.delay(reading_time)
+    await presentation.delay(reading_time)
     slot1.move({ a: 6, b: 1 });
-    // await presentation.delay(reading_time)
+    await presentation.delay(reading_time)
     slot4.move({ a: -4, b: 1 });
-    // await presentation.delay(reading_time)
+    await presentation.delay(reading_time)
   }
 
   /* -------------------------------- slide 18 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
   }
 
   /* -------------------------------- slide 19 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // reordering the four slots
     slot2.move({ b: -1 });
     slot1.move({ b: -1 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot3.move({ a: 4 });
     line2.move({ a: 4 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot4.move({ a: 4 });
     line1.move({ a: 4 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot1.move({ a: -6 });
     slot2.move({ a: -2 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot2.move({ b: 1 });
     slot1.move({ b: 1 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
 
   /* -------------------------------- slide 20 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // spread out the slots
     slot1.move({ a: -3 });
@@ -697,7 +697,7 @@ async function animate() {
     line1.move({ a: -1 });
     line2.move({ a: 5 });
     slot4.move({ a: 3 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // turn on diamonds
     diamond1.switch(1);
@@ -705,7 +705,7 @@ async function animate() {
     diamond3.switch(1);
     diamond4.switch(1);
     diamond5.switch(1);
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // lower slots
     slot1.move({ b: -1.75 });
@@ -714,7 +714,7 @@ async function animate() {
     slot4.move({ b: -1.75 });
     line1.move({ b: -1.75 });
     line2.move({ b: -1.75 });
-    // await presentation.delay(2 * reading_time);
+    await presentation.delay(2 * reading_time);
 
     // reverse it all
     slot1.move({ b: 1.75 });
@@ -723,7 +723,7 @@ async function animate() {
     slot4.move({ b: 1.75 });
     line1.move({ b: 1.75 });
     line2.move({ b: 1.75 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // turn on diamonds
     diamond1.switch(0);
@@ -731,7 +731,7 @@ async function animate() {
     diamond3.switch(0);
     diamond4.switch(0);
     diamond5.switch(0);
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // spread out the slots
     slot1.move({ a: 3 });
@@ -740,117 +740,117 @@ async function animate() {
     line1.move({ a: 1 });
     line2.move({ a: -5 });
     slot4.move({ a: -3 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // move the slots back
     slot1.move({ b: -1 });
     slot2.move({ b: -1 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot3.move({ a: -4 });
     line2.move({ a: -4 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot4.move({ a: -4 });
     line1.move({ a: -4 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot2.move({ a: 2, b: 1 });
     slot1.move({ a: 6, b: 1 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
 
   /* -------------------------------- slide 21 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
   }
 
   /* -------------------------------- slide 22 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
   }
 
   /* -------------------------------- slide 23 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // move all the slots down
     slot1.move({ b: -1 });
     slot2.move({ b: -1 });
     slot3.move({ b: -1 });
     slot4.move({ b: -1 });
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
 
     // move one slot up one at a time
     slot3.move({ b: 1 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
     slot4.move({ b: 1 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
     slot2.move({ b: 1 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
     slot1.move({ b: 1 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
 
   /* -------------------------------- slide 24 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3*reading_time);
+    await presentation.delay(3*reading_time);
   }
 
   /* -------------------------------- slide 25 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(5*reading_time);
+    await presentation.delay(5*reading_time);
 
     // switching around the order for the last two
     slot2.move({ a: 2 });
     slot1.move({ a: -2 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot2.move({ a: -2 });
     slot1.move({ a: 2 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
 
   /* -------------------------------- slide 26 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(5*reading_time);
+    await presentation.delay(5*reading_time);
 
     // move the last two far away
     slot1.move({ a: 4 });
     slot1.switch(0, 1500);
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot2.move({ a: 4 });
     slot2.switch(0, 1500);
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
 
   /* -------------------------------- slide 27 -------------------------------- */
   {
     await presentation.nextSlide();
-    // await presentation.delay(3 * reading_time);
+    await presentation.delay(3 * reading_time);
 
     // move the two to the center of the stage
     slot4.move({ a: 2 });
     line1.move({ a: 2 });
     line2.move({ a: 2 });
     slot3.move({ a: 2 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     // switch the slots
     slot4.move({ a: -2 });
     slot3.move({ a: 2 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
 
     slot4.move({ a: 2 });
     slot3.move({ a: -2 });
-    // await presentation.delay(reading_time);
+    await presentation.delay(reading_time);
   }
   
   /* -------------------------------- slide 28 -------------------------------- */
