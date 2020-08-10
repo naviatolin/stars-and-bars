@@ -83,10 +83,10 @@ export class Diamond {
     this.x = 0;
     this.y = 0;
     this.z = 0;
-    
+
     EXP.TransitionTo(
       { 'expr': (i, t, x, y, z) => [x, y, z], },
-      500
+      50
     );
   }
 }
@@ -168,7 +168,7 @@ export class Person {
       EXP.TransitionTo(
         this.coordinates,
         { 'expr': (i, t, x, y, z) => [x, y, z], },
-        500
+        50
       );
     }
   }
