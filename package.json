@@ -9,7 +9,7 @@
     "css-loader": "^3.6.0",
     "file-loader": "^6.0.0",
     "style-loader": "^1.2.1",
-    "three": "^0.105.0",
+    "three": "^0.125.0",
     "url-loader": "^4.1.0"
   },
   "devDependencies": {
